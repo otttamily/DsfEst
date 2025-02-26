@@ -1,109 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Suite Store</title>
 </head>
 <body>
         
     <div>
-
-            <div>
-                <h1>Suite Store</h1>
-            </div>
-    
-            <div>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="categories.html">Categories</a></li>
-                <li><a href="history.html">History</a></li>
-            </div>
+                    <header>
+                        <h1>Suite Store</h1>
+                    
+                        <nav>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a href="categories.html">Categories</a></li>
+                            <li><a href="history.html">History</a></li>
+                        </nav>
+                    </header>
+                
       
 <br>
                
-            <div>
-                <form>
-                    <label for="produto">Produto:</label>
-                    <select id="produto" name="produto">
-                        <option value=""></option>
-                        <option value="produto1">Produto 1</option>
-                        <option value="produto2">Produto 2</option>
-                        <option value="produto3">Produto 3</option>
-                    </select>
-                </form>
+        <main class="tudo">
+            <div class="conteiner esquerda">
+                <div class="filho produto">
+                    <form>
+                        <label for="produto" class="p1">Produto:</label>
+                        <select id="produto" name="produto" class="p2" disabled>
+                            <option value="" disabled selected>Product</option>
+                            <!-- <option value="produto1">Produto 1</option>
+                            <option value="produto2">Produto 2</option>
+                            <option value="produto3">Produto 3</option>-->
+                        </select>
+                    </form>
+                </div>
+        
+                <div class="opt">
+                    <div class="filho qntd">
+                        <input type="number" name="amount" id="amount" placeholder="amount" disabled class="qntd">
+                    </div>
+            
+            
+                    <div class="filho tax">
+                        <input type="number" name="tax" id="tax" min="0" placeholder="tax" disabled class="tax">  
+                    </div>
+            
+            
+                    <div class="filho price">
+                        <input type="number" name="unit" id="unit" min="0" placeholder="unit" disabled class="price">
+                    </div>
+                </div>
+        
+                <div class="filho botao">
+                    <button class="b_botao">Add Product</button>
+                </div>
             </div>
     
-            
-                <div>
-                    <label for="amount">Amount:</label>
-                    <input type="text" name="amount" id="amount" required/>
-                </div>
-            
-            
-                <div>
-                    <label for="taxvalue">Tax value:</label>
-                    <input type="number" name="tax" id="tax" min="0" disabled>  
-                </div>
-            
-            
-                <div>
-                    <label for="unitprice">Unit price:</label>
-                    <input type="number" name="unit" id="unit" min="0" disabled>
-                </div>
-            
-                <div>
-                    <button>Add Product</button>
-                </div>
-    
-                <div>
+            <div class="direita">
+                <div class="tabela">
                     <table>
                         <thead>
                             <tr>
-                                <th>Product</th>
-                                <th>Unit price</th>
-                                <th>Amount</th>
-                                <th>Total</th>
+                                <th class="t1 bd">Product</th>
+                                <th class="t2 bd">Price</th>
+                                <th class="t3 bd">Amount</th>
+                                <th class="t4 ">Total</th>
                             </tr>
                         </thead>
         
                         <tbody>
-                            <tr>
-                                <td>Rice</td>
-                                <td>$20.0</td>
-                                <td>2</td>
-                                <td>40.00</td>
-                                <td>
-                                    <button>Delete</button>
-                                </td>
+                            <tr class="t_conteudo">
+                                <td class="t1 bd">Rice</td>
+                                <td class="t2 bd">$20.0</td>
+                                <td class="t3 bd">2</td>
+                                <td class="t4">40.00</td>
+                                <!--<td><button>Delete</button>
+                                </td> -->
                             </tr>
         
-                            <tr>
-                                <td>Beans</td>
-                                <td>$9.00</td>
-                                <td>1</td>
-                                <td>9.00</td>
-                                <td><button>Delete</button>
-                                </td>
+                            <tr class="t_conteudo">
+                                <td class="t1 bd">Beans</td>
+                                <td class="t2 bd">$9.00</td>
+                                <td class="t3 bd">1</td>
+                                <td class="t4">9.00</td>
+                                <!--<td><button>Delete</button>
+                                </td> -->
                             </tr>
+                                
+                            <tr class="t_conteudo">
+                                <td class="t1 bd">corn</td>
+                                <td class="t2 bd">$6.00</td>
+                                <td class="t3 bd">3</td>
+                                <td class="t4">18.00</td>
+                                <!--<td><button>Delete</button>
+                                </td> -->
+                            </tr>
+
+                            <tr class="prices">
+                                <td class="esp bd"></td>
+                                <td class="esp bd"></td>
+                                <td class="esp bd"></td>
+                                <td class="esp"></td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
-            
-                <div>
-                    <label for="tax">Tax:</label>
-                    <input type="number" name="tax" id="tax" min="0" disabled>
+        
+                    <div class="tt">
+                        <div>
+                            <label for="tax" class="tax1">Tax:</label>
+                            <input type="number" name="tax" id="tax" min="0" disabled placeholder="$6.50"  class="f_tax">
+                        </div>
+                        
+                        <div>
+                            <label for="total" class="total1">Total:</label>
+                            <input type="number" name="total" id="total" min="0" disabled placeholder="$32.50" class="f_total">
+                        </div>
+                    </div>
+        
+                <div class="b_final">
+                    <button class="b_cancel">Cancel</button>
+                    <button class="b_finish">Finish</button>
                 </div>
-                
-                <div>
-                    <label for="total">Total:</label>
-                    <input type="number" name="total" id="total" min="0" disabled>
-                </div>
-    
-                <div>
-                    <button>Cancel</button>
-                    <button>Finish</button>
-                </div>
+            </div>
+        </main>
+
 
     </div>
 
