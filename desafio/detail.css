@@ -18,6 +18,11 @@ header{
     display: flex;
 }
 
+header a{
+    text-decoration: none;
+    color: black;
+}
+
 nav{
     align-items: center;
     justify-content: center;

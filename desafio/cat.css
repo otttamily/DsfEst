@@ -18,6 +18,11 @@ header{
     display: flex;
 }
 
+header a{
+    text-decoration: none;
+    color: black;
+}
+
 nav{
     align-items: center;
     justify-content: center;
@@ -89,7 +94,7 @@ main{
 }
 
 .tax_in{
-    width: 25%;
+    width: 100%;
     height: 25px;
     padding-top: 5px;
     padding-bottom: 5px;

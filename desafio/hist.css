@@ -18,6 +18,11 @@ header{
     display: flex;
 }
 
+header a{
+    text-decoration: none;
+    color: black;
+}
+
 nav{
     align-items: center;
     justify-content: center;
@@ -34,8 +39,14 @@ nav a{
     font-weight: bold;
 }
 
-main{
+.conteiner{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    margin-right: 545px;
+    margin-left: 545px;
 }
 
 .t1{
