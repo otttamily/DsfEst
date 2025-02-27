@@ -75,22 +75,26 @@ main{
 
 .au{
     display: flex;
-    width: auto;
+    width: 100%;
     height: auto;
     gap: 10px;
     padding-top: 10px;
 }
 
 .am{
-    width: 463px;
+    width: 100%;
     padding: 5px;
     height: 25px;
     border: 1px solid lightgray;
     border-radius: 3px;
 }
 
+.gambiarra{
+    width: 100%;
+}
+
 .u_price{
-    width: 463px;
+    width: 100%;
     padding: 5px;
     height: 25px;
     border: 1px solid lightgray;
@@ -134,9 +138,6 @@ main{
 .a_bot:hover{
     background-color: rgba(61, 46, 114, 0.623);
 }
-
-
-
 
 .direita{
     display: flex;
@@ -225,7 +226,7 @@ tr{
 button{
     font-family: Arial, Helvetica, sans-serif;
     height: 20px;
-    width: 150px;
+    width: 100%;
     border: none;
     border-radius: 3px;
     transition-duration: 0.4s;

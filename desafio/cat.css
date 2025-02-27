@@ -175,7 +175,7 @@ tr{
 button{
     font-family: Arial, Helvetica, sans-serif;
     height: 20px;
-    width: 150px;
+    width: 100%;
     border: none;
     border-radius: 3px;
     transition-duration: 0.4s;

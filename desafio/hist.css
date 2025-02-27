@@ -43,8 +43,6 @@ nav a{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
     margin-right: 545px;
     margin-left: 545px;
 }

@@ -87,23 +87,37 @@ nav a{
 
 .opt{
     display: flex;
-    flex-direction: row;
+    padding: 5px;
+    width: 100%;
+    height: auto;
     gap: 5px;
 }
 
 .qntd{
     padding: 5px;
-    width: 500px;
+    width: 100%;
+}
+
+.qntd_1{
+    width: 50%;
 }
 
 .tax{
     padding: 5px;
-    width: 208px;
+    width: 100%;
+}
+
+.tax_1{
+    width: 25%;
 }
 
 .price{
     padding: 5px;
-    width: 208px;
+    width: 100%;
+}
+
+.price_1{
+    width: 25%;
 }
 
 .botao{
@@ -184,6 +198,7 @@ tr {
 
 .b_final{
     display: flex;
+    width: 100%;
     justify-content: end;
     gap: 15px;
     padding-top: 25px;
@@ -211,7 +226,7 @@ tr {
     border: none;
     border-radius: 2px;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 15px;
     transition-duration: 0.4s;
 }
 
