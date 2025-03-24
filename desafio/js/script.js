@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
         carregarCategorias()
     })
-    
+
+    function testando(str) {
+        return str.replace(/</g, "&lt;").replace(/>/g, "&gt;")
+                  .replace(/"/g, "&quot;").replace(/'/g, "&# 039;");
+    }
   
     function adicionarCategoria() {
         let nome = document.getElementById("categoryname").value.trim()
@@ -11,6 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Preencha todos os campos!")
             return
         }
+            if(taxa < 0){
+                alert("Preencha o campo 'Tax' corretamente!")
+                document.getElementById("tax").value = ""
+                return
+            }
     
         let categorias = JSON.parse(localStorage.getItem("categorias")) || []
     
@@ -40,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
             row.innerHTML = `
                 <td class="t1 bd">${index + 1}</td>
-                <td class="t2 bd">${categoria.nome}</td>
+                <td class="t2 bd">${testando(categoria.nome)}</td>
                 <td class="t3 bd">${categoria.taxa}%</td>
                 <td class="t4"><button onclick="removerCategoria(${categoria.id})">Delete</button></td>
             `
@@ -54,3 +63,5 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("categorias", JSON.stringify(novasCategorias))
         carregarCategorias()
     }
+
+    console.log(JSON.parse(localStorage.getItem("categorias")))

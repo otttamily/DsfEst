@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
     carregarProdutos()
 })
 
+function testando(str) {
+    return str.replace(/</g, "&lt;").replace(/>/g, "&gt;")
+              .replace(/"/g, "&quot;").replace(/'/g, "&# 039;");
+}
+
 function carregarCategoriasNoSelect() {
     let categorias = JSON.parse(localStorage.getItem("categorias")) || []
     let select = document.getElementById("category")
@@ -27,6 +32,18 @@ function adicionarProduto() {
         alert("Preencha todos os campos!")
         return
     }
+
+        if(quantidade < 0){
+            alert("Preencha todos os campos com um valor válido!")
+            document.getElementById("amount").value = ""
+            return
+        }
+
+        if(preco < 0){
+            alert("Preencha todos os campos com um valor válido!")
+            document.getElementById("unitprice").value = ""
+            return
+        }
 
     let categorias = JSON.parse(localStorage.getItem("categorias")) || []
     let produtos = JSON.parse(localStorage.getItem("produtos")) || []
@@ -64,7 +81,7 @@ function carregarProdutos() {
 
         row.innerHTML = `
             <td class="t1 br">${index + 1}</td>
-            <td class="t2 br">${produto.nome}</td>
+            <td class="t2 br">${testando(produto.nome)}</td>
             <td class="t3 br">${produto.quantidade}</td>
             <td class="t4 br">R$${produto.preco.toFixed(2)}</td>
             <td class="t5 br">${produto.categoria}</td>

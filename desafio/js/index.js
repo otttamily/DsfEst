@@ -52,6 +52,11 @@ function adicionarProduto() {
         return
     }
 
+    if (quantidade > produtoSelecionado.quantidade) {
+        alert(`Estoque insuficiente! Apenas ${produtoSelecionado.quantidade} unidades disponíveis.`)
+        return
+    }
+
     let nomeProduto = produtoSelecionado.nome
 
     let tbody = document.querySelector("tbody")
@@ -60,8 +65,14 @@ function adicionarProduto() {
 
     if (produtoExistente) {
         let quantidadeAtual = parseInt(produtoExistente.children[2].textContent)
-        quantidade += quantidadeAtual
-        produtoExistente.children[2].textContent = quantidade
+        let novaQuantidade = quantidadeAtual + quantidade
+
+        if (novaQuantidade > produtoSelecionado.quantidade) {
+            alert(`Estoque insuficiente! Apenas ${produtoSelecionado.quantidade} unidades disponíveis.`)
+            return
+        }
+
+        produtoExistente.children[2].textContent = novaQuantidade
     } else {
         let novaLinha = document.createElement("tr")
         novaLinha.classList.add("t_conteudo")
@@ -171,12 +182,27 @@ function finalizarPedido() {
         return
     }
 
+    let produtos = JSON.parse(localStorage.getItem("produtos")) || []
+    let linhas = document.querySelectorAll(".t_conteudo")
+
+    linhas.forEach((linha) => {
+        let produtoNome = linha.children[0].textContent
+        let quantidadeVendida = parseInt(linha.children[2].textContent)
+
+        let produtoNoEstoque = produtos.find(produto => produto.nome === produtoNome)
+        if (produtoNoEstoque) {
+            produtoNoEstoque.quantidade -= quantidadeVendida
+        }
+    })
+
+    localStorage.setItem("produtos", JSON.stringify(produtos))
+
     salvarPedido(taxa, total)
-    alert("Pedido salvo com sucesso!")
 
+    alert("Pedido finalizado com sucesso!")
+
+    carregarProdutos()
     cancelarProdutos()
-
-    console.log(JSON.parse(localStorage.getItem("pedidos")))
 }
 
-console.log(JSON.parse(localStorage.getItem("pedidos")))
+console.log(JSON.parse(localStorage.removeItem("pedidos")))
