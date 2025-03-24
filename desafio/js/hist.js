@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    carregarPedidos();
-});
+    carregarPedidos()
+})
 
 function carregarPedidos() {
-    let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
-    let tbody = document.querySelector(".t_fil tbody");
+    let pedidos = JSON.parse(localStorage.getItem("pedidos")) || []
+    let tbody = document.querySelector(".t_fil tbody")
 
-    tbody.innerHTML = "";
+    tbody.innerHTML = ""
 
     pedidos.forEach((pedido) => {
         let linha = `
@@ -20,9 +20,9 @@ function carregarPedidos() {
                     </a>
                 </td>
             </tr>
-        `;
-        tbody.innerHTML += linha;
-    });
+        `
+        tbody.innerHTML += linha
+    })
 
     tbody.innerHTML += `
         <tr class="bb">
@@ -31,5 +31,5 @@ function carregarPedidos() {
             <td class="alt br"></td>
             <td class="alt"></td>
         </tr>
-    `;
+    `
 }
