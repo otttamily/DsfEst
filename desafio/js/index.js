@@ -80,7 +80,7 @@ function adicionarProduto() {
             <td class="t1 bd">${nomeProduto}</td>
             <td class="t2 bd">$${precoUnitario.toFixed(2)}</td>
             <td class="t3 bd">${quantidade}</td>
-            <td class="t5 bd"></td>
+            <td class="t5 bd">${parseFloat(taxaPercentual)}</td>
             <td class="t6">
                 <button class="remover" onclick="removerProduto(this)">deletar</button>
             </td>
@@ -154,11 +154,18 @@ function salvarPedido(taxa, total) {
         let produtoNome = linha.children[0].textContent;
         let produtoPreco = parseFloat(linha.children[1].textContent.replace('$', ''))
         let produtoQuantidade = parseInt(linha.children[2].textContent)
+
+      
+        let produtos = JSON.parse(localStorage.getItem("produtos")) || []
+        let produto = produtos.find(p => p.nome === produtoNome)
+        let taxaProduto = produto ? produto.taxa : 0;
+
         produtosPedido.push({
             nome: produtoNome,
             preco: produtoPreco,
             quantidade: produtoQuantidade,
-            total: produtoPreco * produtoQuantidade
+            taxa: taxaProduto,  
+            total: (produtoPreco * produtoQuantidade * (1 + taxaProduto / 100)).toFixed(2) 
         })
     })
 
@@ -205,4 +212,4 @@ function finalizarPedido() {
     cancelarProdutos()
 }
 
-console.log(JSON.parse(localStorage.removeItem("pedidos")))
+console.log(JSON.parse(localStorage.getItem("pedidos")))
