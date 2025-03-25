@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
     carregarDetalhesPedido(codigoPedido)
 })
 
+function testando(str) {
+    return str.replace(/</g, "&lt;").replace(/>/g, "&gt;")
+              .replace(/"/g, "&quot;").replace(/'/g, "&# 039;")
+}
+
 function carregarDetalhesPedido(codigoPedido) {
     let pedidos = JSON.parse(localStorage.getItem("pedidos")) || []
     let pedido = pedidos.find(p => p.codigo === codigoPedido)
@@ -36,7 +41,7 @@ function carregarDetalhesPedido(codigoPedido) {
 
         let row = document.createElement("tr")
         row.innerHTML = `
-            <td class="t1 br">${produto.nome}</td>
+            <td class="t1 br">${testando(produto.nome)}</td>
             <td class="t3 br">${produto.quantidade}</td>
             <td class="t4 br">R$${parseFloat(produto.preco).toFixed(2)}</td>
             <td class="t5 br">R$${(totalProduto * (taxaProduto / 100)).toFixed(2)}</td>

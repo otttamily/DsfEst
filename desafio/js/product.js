@@ -84,7 +84,7 @@ function carregarProdutos() {
             <td class="t2 br">${testando(produto.nome)}</td>
             <td class="t3 br">${produto.quantidade}</td>
             <td class="t4 br">R$${produto.preco.toFixed(2)}</td>
-            <td class="t5 br">${produto.categoria}</td>
+            <td class="t5 br">${testando(produto.categoria)}</td>
             <td class="t6"><button onclick="removerProduto(${produto.id})">Delete</button></td>
         `
     })

@@ -2,6 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
     carregarProdutos()
 })
 
+function testando(str) {
+    return str.replace(/</g, "&lt;").replace(/>/g, "&gt;")
+              .replace(/"/g, "&quot;").replace(/'/g, "&# 039;")
+}
+
 function carregarProdutos() {
     let produtos = JSON.parse(localStorage.getItem("produtos")) || []
     let selectProduto = document.getElementById("produto")
@@ -77,7 +82,7 @@ function adicionarProduto() {
         let novaLinha = document.createElement("tr")
         novaLinha.classList.add("t_conteudo")
         novaLinha.innerHTML = `
-            <td class="t1 bd">${nomeProduto}</td>
+            <td class="t1 bd">${testando(nomeProduto)}</td>
             <td class="t2 bd">$${precoUnitario.toFixed(2)}</td>
             <td class="t3 bd">${quantidade}</td>
             <td class="t5 bd">${parseFloat(taxaPercentual)}</td>
